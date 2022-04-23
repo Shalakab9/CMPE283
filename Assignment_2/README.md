@@ -48,3 +48,5 @@ A2.
     cpuid -l 0X4fffffff -s exit_number
     cpuid -l 0X4ffffffe -s exit_number
 * Finally, use 'dmesg' to log the VMX features to the kernel log in the outer VM.
+
+
