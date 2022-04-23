@@ -3,7 +3,7 @@ Assignment 1: Discovering VMX Features
 
 Team Members:
 Shalaka Bodke (015357069)
-Saketh Reddy Banda ()
+Saketh Reddy Banda (014843881)
 
 Q1. For each member in your team, provide 1 paragraph detailing what parts of the lab that member implemented/researched.
 A1.
