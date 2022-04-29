@@ -46,3 +46,5 @@ A2.
     sudo insmod ./cmpe283-1.ko (When we insert a module into the kernel, the module_init macro will be invoked which will call the init_module function).
     sudo rmmod ./cmpe283-1.ko (When module is removed using rmod, the module_exit will be invoked which will call the cleanup_module).
 * Finally, use 'dmesg' to log the VMX features to the kernel log.
+
+

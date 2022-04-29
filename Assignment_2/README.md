@@ -15,36 +15,38 @@ Started with the setup which was already present as it was done for assignment 1
 
 Q2. Describe in detail the steps you used to complete the assignment. 
 A2.
-i) First, start by build a VM with an Ubuntu ISO image.
-ii) Install git and clone the following linux git repository: git clone https://github.com/torvalds/linux.git
-iii) Follow instructions given in the assignment pdf to build the kernel. Use command:
+* First, start by build a VM with an Ubuntu ISO image.
+* Install git and clone the following linux git repository: git clone https://github.com/torvalds/linux.git
+* Follow instructions given in the assignment pdf to build the kernel. Use command:
     sudo apt-get install build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex libelf-dev
-iv) Copy the config file of the kernel version that you are building into the cloned linux folder. Use command: 
+* Copy the config file of the kernel version that you are building into the cloned linux folder. Use command: 
     cd linux
     cp /boot/config-(linux kernel version) .config
-v) Make oldconfig for building the kernel. Use: make oldconfig.
-vi) Run the following instruction in the linux folder:
+* Make oldconfig for building the kernel. Use: make oldconfig.
+* Run the following instruction in the linux folder:
     make -j 2 modules && make -j 2 && sudo make modules_install  && sudo make install
-vii) Reboot the VM.
-viii) Modify the cpuid.c and vmx.c in the linus folder to get the output for the total number of exits and total time spent processing all the exits.
-ix) After the modification, rebuild your code using the following command:
+* Reboot the VM.
+* Modify the cpuid.c and vmx.c in the linus folder to get the output for the total number of exits and total time spent processing all the exits.
+* After the modification, rebuild your code using the following command:
     sudo make -j 2 modules M=arch/x86/kvm
-x) Load and unload the kvm kernel module (kvm.ko) and kvm-intel module (kvm-intel.ko) using the following commands:
+* Load and unload the kvm kernel module (kvm.ko) and kvm-intel module (kvm-intel.ko) using the following commands:
     sudo rmmod arch/x86/kvm/kvm-intel.ko
     sudo rmmod arch/x86/kvm/kvm.ko
     sudo insmod arch/x86/kvm/kvm.ko
     sudo insmod arch/x86/kvm/kvm-intel.ko
-xi) For the testing we virt manager. Use command:
+* For the testing we virt manager. Use command:
     sudo apt-get update
     sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
-xii) Verify the KVM installation using 'virsh -c qemu:///system list'. You should see an empty list of virtual machines.
-xiii) Open the virtual machine manager using the Ubuntu ISO to create an inner VM.
-xiv) Install cpuid using following commands:
+* Verify the KVM installation using 'virsh -c qemu:///system list'. You should see an empty list of virtual machines.
+* Open the virtual machine manager using the Ubuntu ISO to create an inner VM.
+* Install cpuid using following commands:
     sudo apt-get update
     sudo apt-get install cpuid
-xv) Create the test code in inner VM.
-xvi) Run the test code in the inner VM.
-xvii) Run the below commands in the inner VM (which is inside a VM): 
+* Create the test code in inner VM.
+* Run the test code in the inner VM.
+* Run the below commands in the inner VM (which is inside a VM): 
     cpuid -l 0X4fffffff -s exit_number
     cpuid -l 0X4ffffffe -s exit_number
-xviii) Finally, use 'dmesg' to log the VMX features to the kernel log in the outer VM.
+* Finally, use 'dmesg' to log the VMX features to the kernel log in the outer VM.
+
+
